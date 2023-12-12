@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="dash_2.css">
+  <title>Dashboard</title>
+</head>
+<body>
+
+  <div class="dashboard">
+    <div class="navbar">
+      <!-- Navbar content goes here -->
+    </div>
+
+    <div class="dashboard-content">
+      <div class="dashboard-buttons">
+        <button id="viewAllCourses" onclick="handleViewAllCourses()">VIEW ALL COURSES</button>
+        <button id="viewYourCourses" onclick="handleViewRegisteredCourses()">VIEW YOUR COURSES</button>
+        <button id="enrollCourse" onclick="handleEnrollToCourse()">ENROLL TO COURSE</button>
+        <button id="disenrollCourse" onclick="handleDisenrollFromCourse()">DISENROL FROM COURSE</button>
+      </div>
+
+      <div class="course-details">
+        <!-- Content of the course details goes here -->
+      </div>
+    </div>
+
+    <div class="courses-section">
+      <div class="course-catalogue" id="courseCatalogue">
+        <!-- CourseCatalogue component goes here -->
+      </div>
+
+      <div class="course-enrolled" id="courseEnrolled">
+        <!-- CourseEnrolled component goes here -->
+      </div>
+
+      <div class="course-enroll" id="courseEnroll">
+        <!-- CourseEnrol component goes here -->
+      </div>
+
+      <div class="courses-disenrol" id="coursesDisenrol">
+        <!-- CoursesDisenrol component goes here -->
+      </div>
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

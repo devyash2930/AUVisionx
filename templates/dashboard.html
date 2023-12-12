@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+  <title>Dashboard</title>
+  <style>
+    /* Add your custom styles here */
+  </style>
+</head>
+<body>
+
+  <div class="dashboard">
+    <div class="navbar">
+      <!-- Navbar content goes here -->
+    </div>
+
+    <div class="dashboard-content">
+      <div class="dashboard-buttons">
+        <a href="{{ url_for('course_management.view_all_courses') }}">
+          <button id="viewAllCourses">VIEW ALL COURSES</button>
+        </a>
+        <a href="{{ url_for('course_management.view_enrolled_courses') }}">
+          <button id="viewYourCourses">VIEW YOUR COURSES</button>
+        </a>
+        <a href="{{ url_for('course_management.view_not_enrolled_courses') }}">
+          <button id="enrollToCourse">ENROLL TO COURSE</button>
+        </a>
+        <a href="{{ url_for('auth.logout') }}">
+          <button id="logout">LOGOUT</button>
+        </a>
+       <!--  <button id="startServer">Start Server</button> <!-- Add this button -->
+      </div>
+      <!-- Add your other content here -->
+    </div>
+
+  </div>
+
+ <!--  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Add an event listener to the Start Server button
+      document.getElementById('startServer').addEventListener('click', function () {
+        // Execute the shell command to start the server
+        executeShellCommand('npx http-server');
+      });
+    });
+
+    // Function to execute shell commands
+    function executeShellCommand(command) {
+      // Create an XMLHttpRequest object
+      var xhr = new XMLHttpRequest();
+
+      // Configure it as a GET request to a special endpoint that triggers shell commands
+      xhr.open('GET', '/run-command?command=' + encodeURIComponent(command), true);
+
+      // Define the callback function to handle the response
+      xhr.onload = function () {
+        if (xhr.status >= 200 && xhr.status < 300) {
+          // Successful response
+          console.log(xhr.responseText);
+        } else {
+          // Error response
+          console.error('Error executing shell command:', xhr.statusText);
+        }
+      };
+
+      // Send the request
+      xhr.send();
+    }
+  </script>
+ -->
+ 	<script type="text/javascript">
+  (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function() {
+        window.voiceflow.chat.load({
+          verify: { projectID: '65773f4d06d720007a4107b1' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'production'
+        });
+      }
+      v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+  })(document, 'script');
+</script>
+	</body>
+</html>

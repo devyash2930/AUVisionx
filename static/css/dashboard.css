@@ -1,0 +1,53 @@
+/* dashboard.css */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Set the dashboard height to full viewport height */
+}
+
+.navbar {
+  background-color: #3498db;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+.dashboard-content {
+  flex: 1; /* Take remaining height of the dashboard */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard-buttons {
+  text-align: center;
+  margin-top: 20px; /* Added some top margin for better spacing */
+}
+
+.dashboard-buttons a {
+  text-decoration: none;
+}
+
+button {
+  padding: 10px 15px;
+  margin: 5px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+

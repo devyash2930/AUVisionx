@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUvisionx</title>
+    <!-- Use relative paths for your CSS files -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #root {
+            /* Add styles for your root element if needed */
+        }
+
+        /* Style for the logo */
+        .logo {
+            max-width: 30%; /* Adjust this value to control the maximum width of the image */
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        /* Style for the buttons container */
+        .login-buttons {
+            text-align: center;
+        }
+
+        /* Style for the login buttons */
+        .login-buttons button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Style for the first button */
+        .login-buttons #studentLogin {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        /* Style for the second button */
+        .login-buttons #adminLogin {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+
+        /* Hover effect for the buttons */
+        .login-buttons button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo section -->
+    <img class="logo" src="{{ url_for('static', filename='HorizontalStack.jpg') }}" alt="Your Logo">
+
+    <!-- The root element where your React app will be mounted -->
+    <div id="root"></div>
+
+    <!-- Use relative paths for your JS files -->
+    <script src="{{ url_for('static', filename='js/bundle.js') }}"></script>
+
+    <!-- Add buttons for Student and Administrator login -->
+    <div class="login-buttons">
+        <a href="/login"> <!-- Redirect Student to /login -->
+            <button id="studentLogin">Student Login</button>
+        </a>
+ 	<a href="/login"> <!-- Redirect Student to /login -->
+    <!-- Redirect Administrator to /admin/login -->
+    <button id="adminLogin">Administrator Login</button>
+</a>
+
+
+    </div>
+</body>
+</html>

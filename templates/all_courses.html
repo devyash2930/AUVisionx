@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="your_stylesheet.css">
+  <title>All Courses</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .all-courses {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    h2 {
+      color: #3498db;
+      text-align: center;
+    }
+
+    .course-details {
+      border: 1px solid #ddd;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      background-color: #fff;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .course-details:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .back-button {
+      margin-bottom: 20px;
+    }
+
+    .back-button a {
+      text-decoration: none;
+      padding: 10px 15px;
+      background-color: #3498db;
+      color: #fff;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+    }
+
+    .back-button a:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="all-courses">
+    <div class="back-button">
+      <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    </div>
+    
+    <h2>All Courses</h2>
+
+    {% for course_id, course_info in courses.items() %}
+      <div class="course-details">
+        <h3>{{ course_info.course_name }}</h3>
+        <p>Capacity: {{ course_info.course_capacity }}</p>
+        <p>Start Date: {{ course_info.course_start_date }}</p>
+        <p>End Date: {{ course_info.course_end_date }}</p>
+        {% if 'prof_name' in course_info %}
+          <p>Professor: {{ course_info.prof_name }}</p>
+        {% endif %}
+        <!-- Add other course details as needed -->
+      </div>
+    {% endfor %}
+  </div>
+
+  <script type="text/javascript">
+    /* (Your existing script remains unchanged) */
+  </script>
+</body>
+</html>

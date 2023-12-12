@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+    <!-- Update the title to reflect the page -->
+    <title>Admin Course Management</title>
+</head>
+<body>
+    <div class="admin-container">
+        <h2>Course Management</h2>
+        <!-- Display flash messages here -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flash-messages">
+                    {% for message in messages %}
+                        <li class="flash-message">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+            </ul>
+            <div id="add-course-form">
+                <h4>Add Course</h4>
+                <!-- Update the form action and method -->
+                <form id="add-course" action="{{ url_for('admin_functions.add_course') }}" method="post">
+                    <label for="course-id">Course ID:</label>
+                    <!-- Input for course ID (you can make it read-only or hidden based on your preference) -->
+                    <input type="text" id="course-id" name="course_id" required>
+
+                    <!-- Additional input fields for course data -->
+                    <label for="course-name">Course Name:</label>
+                    <input type="text" id="course-name" name="course_name" required>
+                    
+                    <label for="course-capacity">Course Capacity:</label>
+                    <input type="number" id="course-capacity" name="course_capacity" required>
+
+                    <!-- New input fields -->
+                    <label for="course-start-date">Course Start Date:</label>
+                    <input type="date" id="course-start-date" name="course_start_date" required>
+
+                    <label for="course-end-date">Course End Date:</label>
+                    <input type="date" id="course-end-date" name="course_end_date" required>
+
+                    <label for="has-prerequisites">Has Prerequisites:</label>
+                    <select id="has-prerequisites" name="has_prerequisites" required>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                    <!-- Add other input fields as needed -->
+
+                    <!-- Button to submit the form -->
+                    <button type="submit">Add Course</button>
+                </form>
+            </div>
+            <!-- Existing code... -->
+
+            <div id="delete-course-form">
+                <h4>Delete Course</h4>
+                <!-- Update the form action and method -->
+                <form id="delete-course" action="{{ url_for('admin_functions.delete_course') }}" method="post">
+                    <label for="delete-course-id">Course ID to Delete:</label>
+                    <!-- Input for course ID to delete -->
+                    <input type="text" id="delete-course-id" name="course_id" required>
+
+                    <!-- Button to submit the form -->
+                    <button type="submit">Delete Course</button>
+                </form>
+            </div>
+
+<!-- Existing code... -->
+
+
+        </div>
+    </div>
+    <script type="text/javascript">
+  (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function() {
+        window.voiceflow.chat.load({
+          verify: { projectID: '65773f4d06d720007a4107b1' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'production'
+        });
+      }
+      v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+  })(document, 'script');
+</script>
+</body>
+</html>

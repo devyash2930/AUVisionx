@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses Not Enrolled</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    li {
+      width: 45%; /* Adjust the width as needed */
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+    }
+
+    form {
+      display: inline-block;
+    }
+
+    button {
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .back-button {
+      margin-top: 20px;
+    }
+
+    .back-button a {
+      text-decoration: none;
+      padding: 10px 15px;
+      background-color: #3498db;
+      color: #fff;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button a:hover {
+      background-color: #2980b9;
+    }
+
+    .course-details {
+      margin-top: 10px;
+    }
+
+    .course-details p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="back-button">
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+  </div>
+
+  <h1>Not Enrolled Courses</h1>
+  <!-- Display flash messages -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div>
+        {% for category, message in messages %}
+          <div class="{{ category }}">{{ message }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+  
+  <ul>
+    {% for course_id, course_info in courses.items() %}
+      <li>
+        <h3>{{ course_info.course_name }}</h3>
+        <div class="course-details">
+          <p>Capacity: {{ course_info.course_capacity }}</p>
+          <p>Start Date: {{ course_info.course_start_date }}</p>
+          <p>End Date: {{ course_info.course_end_date }}</p>
+          <p>Has Prerequisites: {{ course_info.has_prerequisites }}</p>
+          <!-- Add other course details as needed -->
+        </div>
+        <form method="POST" action="{{ url_for('course_management.enroll_in_course', course_id=course_id) }}">
+          <button type="submit">Enroll</button>
+        </form>
+      </li>
+    {% endfor %}
+  </ul>
+  <script type="text/javascript">
+  (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function() {
+        window.voiceflow.chat.load({
+          verify: { projectID: '65773f4d06d720007a4107b1' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'production'
+        });
+      }
+      v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+  })(document, 'script');
+</script>
+</body>
+</html>

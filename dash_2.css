@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.navbar {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+.dashboard-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background-color: #f0f0f0;
+  padding: 1rem;
+}
+
+.welcome-message {
+  margin-bottom: 2rem;
+}
+
+.dashboard-buttons button {
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.course-details {
+  flex-grow: 1;
+  margin-left: 1rem; /* Add margin for separation */
+  padding: 1rem;
+  background-color: #fff;
+}
+
+.courses-section {
+  display: flex;
+  justify-content: space-around;
+  background-color: #fff;
+  padding: 2rem;
+}
+
+.course-catalogue,
+.course-enrolled,
+.course-enroll,
+.courses-disenrol {
+  display: none;
+}
+
+/* Additional styling for specific components goes here */
